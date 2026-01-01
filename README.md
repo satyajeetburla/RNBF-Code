@@ -74,7 +74,7 @@ This launch file starts:
 - `fetch_gazebo_vel/CBF_dubin_new.py` for motion planning and control.
 - Helper nodes for TF echoing and rosbag logging (edit `src/fetch_gazebo_vel/launch/CBF_rnbf_regular.launch` if needed).
 
-### Controller internals
+<!-- ### Controller internals
 
 The control node living at `src/fetch_gazebo_vel/scripts/CBF_dubin_new.py` now contains only the logic required for
 this launch. It:
@@ -85,7 +85,7 @@ this launch. It:
 
 Feel free to extend the script, but keep the imports and ROS hooks minimal so launch latency stays predictable.
 
----
+--- -->
 
 ## Citation
 
