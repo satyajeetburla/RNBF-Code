@@ -1,10 +1,37 @@
-## RNBF + CBF Fetch Workspace
+# RNBF: Real-Time RGB-D Based Neural Barrier Functions for Safe Robotic Navigation
 
-This repository is a slimmed-down catkin workspace that combines the ROS RNBF node with our control barrier
-function (CBF) controller (`fetch_gazebo_vel/CBF_dubin_new.py`). The instructions below describe how to create
-a fresh Python environment, install the required packages, and launch the full pipeline in simulation.
+**Satyajeet Das**<sup>1</sup>, **Yifan Xue**<sup>2</sup>, **Haoming Li**<sup>2</sup>, **Nadia Figueroa**<sup>2</sup>  
+<sup>1</sup>University of Southern California &nbsp;&nbsp; <sup>2</sup>University of Pennsylvania
+
+[![arXiv](https://img.shields.io/badge/arXiv-2505.02294-b31b1b.svg)](https://arxiv.org/abs/2505.02294)
+[![Project Page](https://img.shields.io/badge/Project-Website-blue.svg)](https://your-website-url-here)
+
+This repository provides a lightweight **ROS (Noetic) catkin workspace** for reproducing the **RNBF-Control** pipeline: online **RNBF** neural SDF reconstruction from posed RGB-D streams + a **CBF-QP** safety controller for Fetch navigation in simulation & real world.
 
 ---
+
+## Overview
+
+- **RNBF (Perception):** learns a continuous, first-order differentiable **neural signed distance field (SDF)** online from posed RGB-D input and outputs both **SDF values** and **∇SDF**.
+- **Controller (Safety Filter):** a **CBF-QP** controller (`fetch_gazebo_vel/CBF_dubin_new.py`) consumes SDF + ∇SDF to enforce safety while tracking a nominal command.
+
+---
+
+## Paper & Links
+
+- **Paper (arXiv):** https://arxiv.org/abs/2505.02294  
+- **Project Website:** https://satyajeetburla.github.io/rnbf/
+
+---
+
+## Repository Layout (Important)
+
+This repo is intended to be used as a **catkin workspace**:
+
+rnbf_gazebo_ws/
+src/ # place all ROS packages here (this repo’s contents go here)
+build/
+devel/
 
 ## Prerequisites
 
@@ -67,11 +94,24 @@ Feel free to extend the script, but keep the imports and ROS hooks minimal so la
 
 ---
 
-## 4. Tips & maintenance
+## Citation
 
-- The `src/rnbf/rnbf/rossuscriber.py` node publishes depth/pose data from Gazebo. Keep the topic names intact unless you also change them in the controller scripts.
-- Use `conda env export -n rnbf` to capture extra packages you may install later.
-- Before publishing the repo, delete `build/` and `devel/` (they are ignored by `.gitignore`) and rebuild on the target machine.
+If you find this work useful, please cite:
+
+```bibtex
+@misc{das2025rnbfrealtimergbdbased,
+  title         = {RNBF: Real-Time RGB-D Based Neural Barrier Functions for Safe Robotic Navigation},
+  author        = {Satyajeet Das and Yifan Xue and Haoming Li and Nadia Figueroa},
+  year          = {2025},
+  eprint        = {2505.02294},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.RO},
+  url           = {https://arxiv.org/abs/2505.02294}
+}
+```
 
 ---
 
+## Contact
+
+For questions or collaboration inquiries: **satyajee@usc.edu**
