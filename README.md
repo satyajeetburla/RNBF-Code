@@ -13,7 +13,7 @@ This repository provides a lightweight **ROS (Noetic) catkin workspace** for rep
 ## Overview
 
 - **RNBF (Perception):** learns a continuous, first-order differentiable **neural signed distance field (SDF)** online from posed RGB-D input and outputs both **SDF values** and **∇SDF**.
-- **Controller (Safety Filter):** a **CBF-QP** controller (`fetch_gazebo_vel/CBF_dubin_new.py`) consumes SDF + ∇SDF to enforce safety while tracking a nominal command.
+- **Controller (Safety Filter):** a **CBF-QP** controller (`fetch_gazebo_vel/CBF_dubin_new.py`) consumes SDF + ∇SDF to enforce safety.
 
 ---
 
