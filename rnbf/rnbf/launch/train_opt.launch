@@ -1,0 +1,23 @@
+<launch>
+    <arg name="show_orbslam_vis" default="true"/>
+    <arg name="mode" default="rgbd"/>
+    <arg name="show_vis" default="true"/>
+
+    <!-- Run camera driver -->
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+        <arg name="color_width" value="1280"/>
+        <arg name="color_height" value="720"/>
+        <arg name="color_fps" value="30"/>
+        <arg name="depth_width" value="1280"/>
+        <arg name="depth_height" value="720"/>
+        <arg name="depth_fps" value="30"/>
+        <arg name="enable_sync" value="true"/>
+        <arg name="align_depth" value="true"/>
+    </include>
+
+    <!-- Launch RNBF node -->
+    <node pkg="rnbf" name="rnbf_train" type="train_vis.py" output="screen" args="--config $(find rnbf)/train/configs/realsense.json"/>
+
+    <!-- Launch natnet_ros -->
+    <include file="$(find natnet_ros_cpp)/launch/natnet_ros.launch" />
+</launch>

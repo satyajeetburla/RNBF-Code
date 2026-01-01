@@ -1,0 +1,11 @@
+<launch>
+    <arg name="show_orbslam_vis" default="true"/>
+    <arg name="mode" default="rgbd"/>
+    <arg name="show_vis" default="true"/>
+
+
+    <!-- Launch RNBF node -->
+    <node pkg="rnbf" name="rnbf_train" type="train_vis.py" output="screen" args="--config $(find rnbf)/train/configs/realsense.json"/>
+    <!--><node pkg="rnbf" name="move_node" type="cbf.py" output="screen"/> -->
+
+</launch>

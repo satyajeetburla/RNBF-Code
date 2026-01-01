@@ -1,0 +1,19 @@
+<launch>
+    <arg name="show_orbslam_vis" default="true"/>
+    <arg name="mode" default="rgbd"/>
+    <arg name="show_vis" default="true"/>
+
+    <node name="camera_echo" pkg="tf" type="tf_echo" output="screen">
+	    <param name="source_frame" value="world"/>
+	    <param name="target_frame" value="head_camera_depth_optical_frame"/>
+    </node>
+    <node pkg="rnbf" type="listener.py" name="tf_listener_node" output="screen"/>
+    <node pkg="rnbf" name="rnbf_train" type="train_vis.py" output="screen" args="--config $(find rnbf)/train/configs/realsense.json"/>
+
+
+    <node name="fetch_medium" pkg="fetch_gazebo_vel" type="CBF_dubin_new.py" output="screen" />
+    # dont overwrite
+    <node pkg="rosbag" type="record" name="rosbag_record_diag" args="record -e '(.*)cmd(.*)' -O /home/coslam/Rosbag_Record/cmd_pid.bag"/>
+
+
+</launch>
