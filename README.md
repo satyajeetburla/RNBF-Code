@@ -102,6 +102,11 @@ If you find this work useful, please cite:
   url           = {https://arxiv.org/abs/2505.02294}
 }
 ```
+---
+## Acknowledgements
+
+The vision component of this project was inspired by and builds on the
+[iSDF](https://github.com/facebookresearch/iSDF) codebase (Facebook Research).
 
 ---
 
