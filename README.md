@@ -4,7 +4,7 @@
 <sup>1</sup>University of Southern California &nbsp;&nbsp; <sup>2</sup>University of Pennsylvania
 
 [![arXiv](https://img.shields.io/badge/arXiv-2505.02294-b31b1b.svg)](https://arxiv.org/abs/2505.02294)
-[![Project Page](https://img.shields.io/badge/Project-Website-blue.svg)](https://your-website-url-here)
+[![Project Page](https://img.shields.io/badge/Project-Website-blue.svg)](https://satyajeetburla.github.io/rnbf/)
 
 This repository provides a lightweight **ROS (Noetic) catkin workspace** for reproducing the **RNBF-Control** pipeline: online **RNBF** neural SDF reconstruction from posed RGB-D streams + a **CBF-QP** safety controller for Fetch navigation in simulation & real world.
 
@@ -17,34 +17,27 @@ This repository provides a lightweight **ROS (Noetic) catkin workspace** for rep
 
 ---
 
-## Paper & Links
-
-- **Paper (arXiv):** https://arxiv.org/abs/2505.02294  
-- **Project Website:** https://satyajeetburla.github.io/rnbf/
-
----
 
 ## Repository Layout (Important)
 
 This repo is intended to be used as a **catkin workspace**:
 
-rnbf_gazebo_ws/
+rnbf_ws/
 src/ # place all ROS packages here (this repo’s contents go here)
-build/
-devel/
+
 
 ## Prerequisites
 
 - Ubuntu 20.04 with ROS Noetic and `catkin` already installed.
 - A conda installation (Miniconda/Anaconda).
-- A working catkin workspace located at `~/rnbf_gazebo_ws` (or adapt the commands to your location).
+- A working catkin workspace located at `~/rnbf_ws` (or adapt the commands to your location).
 
 ---
 
 ## 1. Build the catkin workspace
 
 ```bash
-cd ~/rnbf_gazebo_ws
+cd ~/rnbf_ws
 catkin_make            # build once so ROS messages are generated
 ```
 
@@ -68,7 +61,7 @@ pip install -e src/rnbf             # installs the RNBF Python package in editab
 ## 3. Launch the full simulation + learning stack
 
 ```bash
-cd ~/rnbf_gazebo_ws
+cd ~/rnbf_ws
 conda activate rnbf
 pip install -e src/rnbf             # ensure the RNBF python package is registered
 source devel/setup.bash
